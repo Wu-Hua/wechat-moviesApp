@@ -1,0 +1,44 @@
+{
+	"client": "client/",
+	"svr": "server/",
+	"miniprogramRoot": "client/",
+	"qcloudRoot": "server/",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wxcc74c0086dfb2171",
+	"projectname": "%E7%9C%8B%E7%9C%8B%E4%BE%83%E4%BE%83%E7%94%B5%E5%BD%B1",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "热门电影",
+					"pathName": "pages/moviesList/moviesList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "电影详情",
+					"pathName": "pages/movieDetail/movieDetail"
+				}
+			]
+		}
+	}
+}

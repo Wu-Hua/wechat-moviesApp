@@ -1,0 +1,32 @@
+/* client/pages/moviesList/moviesList.wxss */
+.movie-box {
+  width: 87.69%;
+  margin: 0 auto;
+  display: flex;
+  background: #fff;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border: 1px solid #edeff0;
+}
+.movie-box image {
+  width: 32%;
+  height: 330rpx;
+}
+.movie-describe {
+  width: 68%;
+  position: relative;
+}
+.movie-text {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+.movie-name {
+  font-size: 35rpx;
+}
+.movie-category {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}

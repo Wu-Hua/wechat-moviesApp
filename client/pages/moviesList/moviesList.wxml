@@ -1,0 +1,10 @@
+<!--client/pages/moviesList/moviesList.wxml-->
+<view class='movie-box' wx:for="{{moviesList}}" wx:key='id' wx:for-item="movie" data-id='{{movie.id}}' bindtap='goToMovieDetail'>
+  <image src='{{movie.image}}'></image>
+  <view class='movie-describe'>
+    <view class='movie-text'>
+      <view class='movie-name'>{{movie.title}}</view>
+      <view class='movie-category'>类型：{{movie.category}}</view>
+    </view>
+  </view>
+</view>

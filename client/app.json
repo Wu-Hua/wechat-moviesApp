@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/moviesList/moviesList",
+    "pages/movieDetail/movieDetail",
+    "pages/add-comment/add-comment"
+  ],
+  "window": {
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarTextStyle": "black"
+  }
+}

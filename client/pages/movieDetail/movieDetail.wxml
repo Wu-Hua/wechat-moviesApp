@@ -1,0 +1,17 @@
+<!--client/pages/movieDetail/movieDetail.wxml-->
+<view class='movie-detail-box'>
+  <image class='movies-image' src='{{movie.image}}'></image>
+  <view class='movie-title'>{{movie.title}}</view>
+  <view class='movie-description'>{{movie.description}}</view>
+  <view class='movie-detail-btn' >
+    <button>查看影评</button>
+    <button bindtap='showLayer'>添加影评</button>
+  </view>
+</view>
+<view class='layer {{layer ? "" : "hide-layer" }}'>
+  <view class='btn-box'>
+    <button>文字</button>
+    <button>音频</button>
+    <button bindtap='showLayer'>取消</button>
+  </view>
+</view>
