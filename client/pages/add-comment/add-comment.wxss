@@ -1,1 +1,30 @@
 /* client/pages/add-comment/add-comment.wxss */
+.movie-detail-box  {
+  height: 63vh;
+}
+.comment-ipt {
+  width: 80%;
+  margin: 0 auto;
+  height: 300rpx;
+  padding: 29rpx 34rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+}
+.comment-placeholder {
+  color: rgba(29, 29, 38, 0.4);
+}
+.finish-btn {
+  background: #09bb07;
+  color: #fff;
+  border-radius: 0;
+  font-size: 35rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.finish-btn::after {
+  border: none;
+}

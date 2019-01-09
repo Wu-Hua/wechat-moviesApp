@@ -1,7 +1,6 @@
 // client/pages/movieDetail/movieDetail.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
-const app = getApp()
 
 Page({
 
@@ -9,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    moviesList: {},
     movie: {},
     layer: false
   },
@@ -23,7 +21,7 @@ Page({
 
   getMovie(id) {
     wx.showLoading({
-      title: '商品数据加载中...',
+      title: '数据加载中...',
     })
 
     qcloud.request({
@@ -50,6 +48,13 @@ Page({
           wx.navigateBack()
         }, 2000)
       }
+    })
+  },
+
+  goToAddComment() {
+    this.showLayer()
+    wx.navigateTo({
+      url: '../add-comment/add-comment?id=' + this.data.movie.id
     })
   },
 

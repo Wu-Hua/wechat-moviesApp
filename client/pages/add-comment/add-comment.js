@@ -1,18 +1,67 @@
 // client/pages/add-comment/add-comment.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
+const config = require('../../config.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    commentValue: null,
+    movie: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getMovie(1)
+    // this.getMovie(options.id)
+  },
 
+  getMovie(id) {
+    wx.showLoading({
+      title: '数据加载中...',
+    })
+
+    qcloud.request({
+      url: config.service.moviesDetail + id,
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+
+        if (!data.code) {
+          this.setData({
+            movie: data.data,
+          })
+        } else {
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000)
+        }
+      },
+      fail: (res) => {
+        wx.hideLoading()
+
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000)
+      }
+    })
+  },
+
+  onInput(event) {
+    this.setData({
+      commentValue: event.detail.value.trim()
+    })
+  },
+
+  goToPreviewComment() {
+    // wx.navigateTo({
+    //   url: '../add-comment/preview-comment?id=' + this.data.movie.id + 'commentValue=' + this.data.commentValue
+    // })
   },
 
   /**

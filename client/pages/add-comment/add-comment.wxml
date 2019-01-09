@@ -1,2 +1,8 @@
 <!--client/pages/add-comment/add-comment.wxml-->
-<text>client/pages/add-comment/add-comment.wxml</text>
+<view class='movie-detail-box'>
+  <image class='movies-image' src='{{movie.image}}'></image>
+  <view class='movie-title'>{{movie.title}}</view>
+  <textarea class='comment-ipt' placeholder-class='comment-placeholder' placeholder='请输入你的影评内容。。。' auto-focus maxlength='255' bindinput='onInput'></textarea>
+
+</view>
+<button class='finish-btn' bindtap='goToPreviewComment'>完成</button>
