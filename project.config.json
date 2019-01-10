@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -61,6 +61,12 @@
 					"id": -1,
 					"name": "影评列表页",
 					"pathName": "pages/commentList/commentList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "影评预览页",
+					"pathName": "pages/commentPreview/commentPreview",
 					"query": ""
 				}
 			]

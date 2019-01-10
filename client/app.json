@@ -6,7 +6,8 @@
     "pages/addComment/addComment",
     "pages/user/user",
     "pages/commentDetali/commentDetail",
-    "pages/commentList/commentList"
+    "pages/commentList/commentList",
+    "pages/commentPreview/commentPreview"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
