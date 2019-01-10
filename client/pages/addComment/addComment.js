@@ -12,6 +12,7 @@ Page({
   data: {
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
+    commentType: null,
     commentValue: null,
     movie: {},
     audioBtn: true,
@@ -23,8 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMovie(1)
-    // this.getMovie(options.id)
+    // this.getMovie(1)
+    this.getMovie(options.id)
+    this.ckeckCommentType(options.type)
   },
 
   getMovie(id) {
@@ -57,6 +59,18 @@ Page({
         }, 2000)
       }
     })
+  },
+
+  ckeckCommentType(type) {
+    if(type === 'text') {
+      this.setData({
+        commentType: true
+      })
+    } else if(type === 'audio') {
+      this.setData({
+        commentType: false
+      })
+    }
   },
 
   onInput(event) {

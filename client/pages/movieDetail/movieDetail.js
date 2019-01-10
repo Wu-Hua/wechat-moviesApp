@@ -51,10 +51,10 @@ Page({
     })
   },
 
-  goToAddComment() {
+  goToAddComment(event) {
     this.showLayer()
     wx.navigateTo({
-      url: '../addComment/addComment?id=' + this.data.movie.id
+      url: '../addComment/addComment?id=' + this.data.movie.id + '&' + 'type=' + event.target.dataset.type
     })
   },
 

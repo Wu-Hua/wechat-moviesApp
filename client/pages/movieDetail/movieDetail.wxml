@@ -10,8 +10,8 @@
 </view>
 <view class='layer {{layer ? "" : "hide-layer" }}'>
   <view class='btn-box'>
-    <button bindtap='goToAddComment'>文字</button>
-    <button bindtap='goToAddComment'>音频</button>
+    <button bindtap='goToAddComment' data-type='text'>文字</button>
+    <button bindtap='goToAddComment' data-type='audio'>音频</button>
     <button bindtap='showLayer'>取消</button>
   </view>
 </view>

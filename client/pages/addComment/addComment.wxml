@@ -14,8 +14,12 @@
   <view class='movie-detail-box'>
     <image class='movies-image' src='{{movie.image}}'></image>
     <view class='movie-title'>{{movie.title}}</view>
-    <textarea class='comment-ipt' placeholder-class='comment-placeholder' auto-focus placeholder='请输入你的影评内容。。。' maxlength='255' bindinput='onInput'></textarea>
-    <button class='get-audio' bindtap='getAudio'>{{audioBtn ? "开始录音":"结束录音"}}</button>
+    <view wx:if="{{commentType}}">
+      <textarea class='comment-ipt' placeholder-class='comment-placeholder' auto-focus placeholder='请输入你的影评内容。。。' maxlength='255' bindinput='onInput'></textarea>
+    </view>
+    <view wx:else>
+      <button class='get-audio' bindtap='getAudio'>{{audioBtn ? "开始录音":"结束录音"}}</button>
+    </view>
   </view>
   <button class='finish-btn' bindtap='goToPreviewComment'>完成</button>
 </view>
