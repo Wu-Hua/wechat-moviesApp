@@ -28,6 +28,9 @@ var config = {
 
       // 拉取电影详情
       moviesDetail: `${host}/weapp/movies/`,
+
+      // 拉取用户信息
+      user: `${host}/weapp/user`,
     }
 };
 
