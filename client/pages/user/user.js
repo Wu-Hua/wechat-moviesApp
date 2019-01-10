@@ -1,11 +1,16 @@
 // client/pages/user/user.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    data: {
+      userInfo: null,
+      locationAuthType: app.data.locationAuthType
+    },
   },
 
   /**

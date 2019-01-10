@@ -49,7 +49,12 @@ Page({
     wx.navigateTo({
       url: '../moviesList/moviesList?id=' + this.data.moviesList.id
     })
-    
+  },
+
+  goToUser() {
+    wx.navigateTo({
+      url: '../user/user'
+    })
   },
 
   /**
