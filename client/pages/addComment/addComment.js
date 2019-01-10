@@ -81,13 +81,11 @@ Page({
     this.setData({
       commentText: event.detail.value.trim()
     })
-    console.log(event.detail)
-    // event.detail = { value, casdasdadursor }
   },
 
   goToPreviewComment() {
     wx.navigateTo({
-      url: '../commentPreview/commentPreview?id=' + this.data.movie.id + '&commentText="' + this.data.commentText + '"&audioPath=' + this.data.audioPath
+      url: '../commentPreview/commentPreview?id=' + this.data.movie.id + '&commentText=' + this.data.commentText + '&audioPath=' + this.data.audioPath
     })
   },
 

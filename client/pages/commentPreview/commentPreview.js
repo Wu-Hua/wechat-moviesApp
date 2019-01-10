@@ -1,11 +1,17 @@
 // client/pages/commentPreview/commentPreview.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
+const config = require('../../config.js')
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo: null,
+    commentText: null,
+    audioPath: null
   },
 
   /**
@@ -15,6 +21,50 @@ Page({
     console.log(options.id)
     console.log(options.commentText)
     console.log(options.audioPath)
+    this.setData({
+      commentText: options.commentText,
+      audioPath: options.audioPath
+    })
+    this.getMovie(options.id)
+  },
+
+  // 返回上一页
+  goToBack() {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+
+  getMovie(id) {
+    wx.showLoading({
+      title: '数据加载中...',
+    })
+
+    qcloud.request({
+      url: config.service.moviesDetail + id,
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+
+        if (!data.code) {
+          this.setData({
+            movie: data.data,
+          })
+        } else {
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000)
+        }
+      },
+      fail: (res) => {
+        wx.hideLoading()
+
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000)
+      }
+    })
   },
 
   /**
@@ -24,11 +74,29 @@ Page({
 
   },
 
+  onTapLogin: function () {
+    app.login({
+      success: ({ userInfo }) => {
+        this.setData({
+          userInfo,
+        })
+      },
+      error: () => { }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 同步授权状态
+    app.checkSession({
+      success: ({ userInfo }) => {
+        this.setData({
+          userInfo
+        })
+      }
+    })
   },
 
   /**

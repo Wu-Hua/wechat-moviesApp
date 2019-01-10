@@ -26,12 +26,3 @@
   font-size: 33rpx;
   margin: 30rpx auto 0;
 }
-.movie-detail-btn {
-  display: flex;
-  margin: 120rpx auto 50rpx;
-}
-.movie-detail-btn button {
-  font-size: 30rpx;
-  background: #fff;
-  color: #7d97ad;
-}

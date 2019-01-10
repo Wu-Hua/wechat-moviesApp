@@ -1,2 +1,18 @@
 <!--client/pages/commentPreview/commentPreview.wxml-->
-<text>client/pages/commentPreview/commentPreview.wxml</text>
+<view class='movie-detail-box'>
+  <image class='movies-image' src='{{movie.image}}'></image>
+  <view class='movie-title'>{{movie.title}}</view>
+  <view class="comment-detail-box">
+    <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
+    <view class='comment-right'>
+      <view class="user-name">{{userInfo.nickName}}的影评</view>
+      <view class='comment-content'>
+        {{commentText}}
+      </view>
+    </view>
+  </view>
+  <view class='movie-detail-btn' >
+    <button bindtap='goToBack'>重新编辑</button>
+    <button bindtap=''>发布影评</button>
+  </view>
+</view>

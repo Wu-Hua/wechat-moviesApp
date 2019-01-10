@@ -109,3 +109,14 @@ page {
   color: #34373D;
   font-weight: bold;
 }
+
+.movie-detail-btn {
+  display: flex;
+  margin: 120rpx auto 50rpx;
+}
+
+.movie-detail-btn button {
+  font-size: 30rpx;
+  background: #fff;
+  color: #7d97ad;
+}

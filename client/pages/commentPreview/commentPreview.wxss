@@ -1,1 +1,31 @@
 /* client/pages/commentPreview/commentPreview.wxss */
+.movie-detail-box {
+  height: auto;
+  margin-bottom: 50rpx;
+}
+.comment-detail-box {
+  display: flex;
+  margin-top: 20rpx;
+}
+.user-head {
+  flex-shrink: 0;
+  margin-left: 53rpx;
+  height: 100rpx;
+  width: 100rpx;
+  background: #F5E069;
+  border-radius: 50%;
+}
+.user-name {
+  text-align: left;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  line-height: 100rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.comment-content {
+  text-align: left;
+  font-size: 30rpx;
+  width: 90%;
+}

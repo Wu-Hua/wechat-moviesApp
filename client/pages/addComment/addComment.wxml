@@ -10,7 +10,7 @@
   <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
   <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
 </view>
-<view class="user-card" wx:else>
+<view wx:else>
   <view class='movie-detail-box'>
     <image class='movies-image' src='{{movie.image}}'></image>
     <view class='movie-title'>{{movie.title}}</view>
