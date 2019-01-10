@@ -13,11 +13,11 @@ Page({
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
     commentType: null,
-    commentValue: null,
+    commentText: null,
     movie: {},
     audioBtn: true,
     audioStatus: true,
-    audioPath: ''
+    audioPath: null
   },
 
   /**
@@ -27,6 +27,10 @@ Page({
     // this.getMovie(1)
     this.getMovie(options.id)
     this.ckeckCommentType(options.type)
+    this.setData({
+      commentText: null,
+      audioPath: null
+    })
   },
 
   getMovie(id) {
@@ -75,14 +79,16 @@ Page({
 
   onInput(event) {
     this.setData({
-      commentValue: event.detail.value.trim()
+      commentText: event.detail.value.trim()
     })
+    console.log(event.detail)
+    // event.detail = { value, casdasdadursor }
   },
 
   goToPreviewComment() {
-    // wx.navigateTo({
-    //   url: '../add-comment/preview-comment?id=' + this.data.movie.id + 'commentValue=' + this.data.commentValue
-    // })
+    wx.navigateTo({
+      url: '../commentPreview/commentPreview?id=' + this.data.movie.id + '&commentText="' + this.data.commentText + '"&audioPath=' + this.data.audioPath
+    })
   },
 
   getAudio() {

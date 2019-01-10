@@ -32,7 +32,7 @@
   border: 1px solid #ebeff3;
   margin-top: 200rpx;
   width: 30%;
-  color: #666;
+  color: #7d97ad;
   font-size: 30rpx;
 }
 .get-audio::after {
