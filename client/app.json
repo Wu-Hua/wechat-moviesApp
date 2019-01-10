@@ -5,7 +5,8 @@
     "pages/movieDetail/movieDetail",
     "pages/addComment/addComment",
     "pages/user/user",
-    "pages/commentDetali/commentDetail"
+    "pages/commentDetali/commentDetail",
+    "pages/commentList/commentList"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

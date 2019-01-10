@@ -25,24 +25,24 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 2,
 			"list": [
 				{
-					"id": -1,
-					"name": "热门电影",
+					"id": 0,
+					"name": "电影列表页",
 					"pathName": "pages/moviesList/moviesList",
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "电影详情",
+					"id": 1,
+					"name": "电影详情页",
 					"pathName": "pages/movieDetail/movieDetail",
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "编辑影评",
-					"pathName": "pages/add-comment/add-comment",
+					"id": 2,
+					"name": "影评编辑页",
+					"pathName": "pages/addComment/addComment",
 					"query": ""
 				},
 				{
@@ -55,6 +55,12 @@
 					"id": 4,
 					"name": "影评详情页",
 					"pathName": "pages/commentDetali/commentDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "影评列表页",
+					"pathName": "pages/commentList/commentList",
 					"query": ""
 				}
 			]
