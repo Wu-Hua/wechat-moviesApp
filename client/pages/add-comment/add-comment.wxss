@@ -28,3 +28,13 @@
 .finish-btn::after {
   border: none;
 }
+.get-audio {
+  border: 1px solid #ebeff3;
+  margin-top: 200rpx;
+  width: 30%;
+  color: #666;
+  font-size: 30rpx;
+}
+.get-audio::after {
+  border: none;
+}

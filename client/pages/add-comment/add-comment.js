@@ -2,6 +2,8 @@
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
 
+const recorderManager = wx.getRecorderManager()
+
 Page({
 
   /**
@@ -9,7 +11,10 @@ Page({
    */
   data: {
     commentValue: null,
-    movie: {}
+    movie: {},
+    audioBtn: true,
+    audioStatus: true,
+    audioPath: ''
   },
 
   /**
@@ -62,6 +67,43 @@ Page({
     // wx.navigateTo({
     //   url: '../add-comment/preview-comment?id=' + this.data.movie.id + 'commentValue=' + this.data.commentValue
     // })
+  },
+
+  getAudio() {
+    const options = {
+      format: 'mp3',//音频格式，有效值 aac/mp3
+      frameSize: 50,//指定帧大小，单位 KB
+    }
+    //开始录音
+    wx.getRecorderManager().start(options)
+    if(this.data.audioStatus) {
+      wx.getRecorderManager().onStart(() => {
+        console.log('start')
+        this.setData({
+          audioStatus: false,
+          audioBtn: false
+        })
+      })
+    } else {
+      wx.getRecorderManager().stop()
+      wx.getRecorderManager().onStop((res) => {
+        console.log('stop')
+        wx.showToast({
+          title: '录制结束',
+        })
+
+        this.setData({
+          audioStatus: true,
+          audioBtn: true,
+          audioPath: res.tempFilePath
+        })
+        console.log(this.data.audioPath)
+      })
+    }
+    
+    wx.getRecorderManager().onError((res) => {
+      console.log(res)
+    })
   },
 
   /**
