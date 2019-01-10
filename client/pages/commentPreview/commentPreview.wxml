@@ -13,6 +13,6 @@
   </view>
   <view class='movie-detail-btn' >
     <button bindtap='goToBack'>重新编辑</button>
-    <button bindtap=''>发布影评</button>
+    <button bindtap="addComment">发布影评</button>
   </view>
 </view>

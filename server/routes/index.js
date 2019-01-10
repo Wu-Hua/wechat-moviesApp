@@ -38,4 +38,9 @@ router.get('/movies', controllers.movies.list)
 // 获取电影详情
 router.get('/movies/:id', controllers.movies.detail)
 
+// 添加评论
+// 这里指明了我们这个请求是一个 PUT 请求，名字是 comment ，需要授权登录 validationMiddleware ，
+// 同时它调用了 comment 中的 add 函数，也就是添加评论的功能
+router.put('/comment', validationMiddleware, controllers.comment.add)
+
 module.exports = router

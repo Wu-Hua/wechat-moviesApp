@@ -28,6 +28,58 @@ Page({
     this.getMovie(options.id)
   },
 
+  // 添加评论 API 客户端部分的代码，
+  addComment(event) {
+    let content = this.data.commentValue
+    if (!content) return
+
+    wx.showLoading({
+      title: '正在发表评论'
+    })
+
+    // 它调用了 uploadImages这个函数，同时将返回的上传后的图像链接列表 images ，添加到了上传的数据当中。
+    // 使用 qcloud.request 发起请求
+    qcloud.request({
+      url: config.service.addComment,
+      login: true,
+      method: 'PUT',
+      // 上传数据，包括了评论的内容，以及商品的 id ，组装起来作为请求的 data 参数
+      data: {
+        content: content,
+        movie_id: this.data.movie.id
+      },
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+
+        if (!data.code) {
+          wx.showToast({
+            title: '发表评论成功'
+          })
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 1500)
+
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '发表评论失败'
+          })
+        }
+      },
+      fail: (res) => {
+        console.log('fail')
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          icon: 'none',
+          title: '发表评论失败'
+        })
+      }
+    })
+  },
+
   // 返回上一页
   goToBack() {
     wx.navigateBack({
