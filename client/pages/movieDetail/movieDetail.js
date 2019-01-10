@@ -54,7 +54,7 @@ Page({
   goToAddComment() {
     this.showLayer()
     wx.navigateTo({
-      url: '../add-comment/add-comment?id=' + this.data.movie.id
+      url: '../addComment/addComment?id=' + this.data.movie.id
     })
   },
 

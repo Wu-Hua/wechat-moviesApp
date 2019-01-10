@@ -3,7 +3,7 @@
     "pages/home/home",
     "pages/moviesList/moviesList",
     "pages/movieDetail/movieDetail",
-    "pages/add-comment/add-comment",
+    "pages/addComment/addComment",
     "pages/user/user"
   ],
   "window": {
