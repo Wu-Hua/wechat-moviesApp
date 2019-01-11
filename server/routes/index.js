@@ -43,4 +43,7 @@ router.get('/movies/:id', controllers.movies.detail)
 // 同时它调用了 comment 中的 add 函数，也就是添加评论的功能
 router.put('/comment', validationMiddleware, controllers.comment.add)
 
+// 获取评论列表
+router.get('/comment', controllers.comment.list)
+
 module.exports = router

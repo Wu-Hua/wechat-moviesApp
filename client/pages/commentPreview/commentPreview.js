@@ -113,7 +113,7 @@ Page({
             title: '发表评论成功'
           })
           wx.navigateTo({
-            url: '../commentDetail/commentDetail'
+            url: '../commentList/commentList?id=' + this.data.movie.id
           })
 
         } else {

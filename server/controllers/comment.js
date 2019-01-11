@@ -16,7 +16,7 @@ module.exports = {
     let user_avatar = ctx.state.$wxInfo.userinfo.avatarUrl
 
     // 这里两行，是读取了请求体中的数据
-    // 注意到 +ctx.request.body.product_id 这里的类型转换，
+    // 注意到 +ctx.request.body.movie_id 这里的类型转换，
     // 以及 NaN 值的判断，是不是和我们在获取商品详细时的判断非常相似
     //  add 只是一个 put 请求,所以使用 .body 的方法来获取数据
     let movie_id = + ctx.request.body.movie_id
@@ -48,14 +48,14 @@ module.exports = {
    * 获取评论列表
    */
   list: async ctx => {
-    // 在服务器端，用 query.product_id 来获取这个数据
+    // 在服务器端，用 query.movie_id 来获取这个数据
     // 因为在请求的类别不同,所以我们获取请求中包含的数据的方法也是不同的，
     // 这里是 get 请求,所以使用 .query 的方式来获取数据,
     // 而我们上面的 add 只是一个 put 请求,所以使用 .body 的方法来获取数据
-    let productId = +ctx.request.query.product_id
+    let movieId = +ctx.request.query.movie_id
 
-    if (!isNaN(productId)) {
-      ctx.state.data = await DB.query('select * from comment where comment.product_id = ?', [productId])
+    if (!isNaN(movieId)) {
+      ctx.state.data = await DB.query('select * from comment where comment.movie_id = ?', [movieId])
     } else {
       ctx.state.data = []
     }

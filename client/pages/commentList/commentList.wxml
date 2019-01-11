@@ -10,8 +10,16 @@
   <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
   <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
 </view>
-<view class="user-card" wx:else>
-
+<view wx:else>
+  <view class='comment-box'>
+    <navigator class='comment-card' wx:for='{{commentList}}' wx:key='id' wx:for-item='item'>
+      <image class='comment-avatar' src='{{item.user_avatar}}'></image>
+      <view class='comment-box-right'>
+        <view class='comment-username'>{{item.user_name}}</view>
+        <view class='comment-content'>{{item.content}}</view>
+      </view>
+    </navigator>
+  </view>
 </view>
 
 
