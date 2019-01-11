@@ -1,7 +1,7 @@
 // client/pages/user/user.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config')
-const _ = require('../../utils/util')
+const innerAudioContext = wx.createInnerAudioContext()
 const app = getApp()
 
 Page({
@@ -13,7 +13,8 @@ Page({
     data: {
       userInfo: null,
       locationAuthType: app.data.locationAuthType,
-      commentList: []
+      commentList: [],
+      isPlay: true
     },
   },
 
@@ -40,6 +41,28 @@ Page({
           console.log(this.data.commentList)
         }
       },
+    })
+  },
+
+  onPlay(event) {
+    console.log(event.target.dataset.src)
+    innerAudioContext.src = event.target.dataset.src
+    if (this.data.isPlaying) {
+      innerAudioContext.play()
+      console.log('开始播放')
+      this.setData({
+        isPlaying: false
+      })
+    } else {
+      innerAudioContext.stop()
+      console.log('播放结束')
+      this.setData({
+        isPlaying: false
+      })
+    }
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
     })
   },
 

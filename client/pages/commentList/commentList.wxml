@@ -16,7 +16,13 @@
       <image class='comment-avatar' src='{{item.user_avatar}}'></image>
       <view class='comment-box-right'>
         <view class='comment-username'>{{item.user_name}}</view>
-        <view class='comment-content'>{{item.content}}</view>
+        <view wx:if='{{}}' class='comment-content'>{{item.content}}</view>
+        <view wx:if="{{item.type === 'text'}}" class='comment-content'>
+          {{item.content}}
+        </view>
+        <view wx:else>
+          <view catchtap='onPlay' data-src='{{item.content}}'>点击播放</view>
+        </view>
       </view>
     </navigator>
   </view>
