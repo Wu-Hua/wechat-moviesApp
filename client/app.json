@@ -5,7 +5,7 @@
     "pages/movieDetail/movieDetail",
     "pages/addComment/addComment",
     "pages/user/user",
-    "pages/commentDetali/commentDetail",
+    "pages/commentDetail/commentDetail",
     "pages/commentList/commentList",
     "pages/commentPreview/commentPreview"
   ],

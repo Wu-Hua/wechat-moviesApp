@@ -7,7 +7,12 @@
     <view class='comment-right'>
       <view class="user-name">{{userInfo.nickName}}的影评</view>
       <view class='comment-content'>
-        {{commentText}}
+        <view wx:if="{{checkCommentType}}">
+          {{commentText}}
+        </view>
+        <view wx:else>
+          <view bindtap='onPlay'>点击播放</view>
+        </view>
       </view>
     </view>
   </view>

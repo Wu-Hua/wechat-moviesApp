@@ -1,6 +1,7 @@
 // client/pages/commentPreview/commentPreview.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
+const innerAudioContext = wx.createInnerAudioContext()
 const app = getApp()
 
 Page({
@@ -10,10 +11,12 @@ Page({
    */
   data: {
     userInfo: null,
+    checkCommentType: null,
     commentType: null,
     commentText: null,
     audioPath: null,
-    duration: 0
+    duration: 0,
+    isPlaying: true
   },
 
   /**
@@ -35,12 +38,56 @@ Page({
       })
     }
     this.getMovie(options.id)
+    this.audioCtx = wx.createAudioContext('myAudio')
+    this.audioCtx.setSrc(options.audioPath)
+    console.log(this.data.commentType)
+    console.log(this.data.audioPath)
+    console.log(this.data.duration)
+  },
+
+  onPlay(){
+    innerAudioContext.src = this.data.audioPath
+    if(this.data.isPlaying){
+      innerAudioContext.play()
+        console.log('开始播放')
+        this.setData({
+          isPlaying: false
+        })
+    } else {
+      innerAudioContext.stop()
+        console.log('播放结束')
+        this.setData({
+          isPlaying: false
+        })
+    }
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+    })
+  },
+
+  // 判断评论类型，页面显示内容
+  checkCommentType(type) {
+    if (type === 'text') {
+      this.setData({
+        checkCommentType: true
+      })
+    } else if (type === 'audio') {
+      this.setData({
+        checkCommentType: false
+      })
+    }
   },
 
   // 添加评论 API 客户端部分的代码，
   addComment(event) {
     let content = this.data.commentText
     // if (!content) return
+    //如果是音频评论先将音频文件上传至对象存储
+    if (this.data.commentType == 'audio') {
+      this.uploadVoice()
+      content = this.data.audioPath
+    }
 
     wx.showLoading({
       title: '正在发表评论'
@@ -85,6 +132,25 @@ Page({
           icon: 'none',
           title: '发表评论失败'
         })
+      }
+    })
+  },
+
+  //音频上传函数
+  uploadVoice() {
+    let audioPath = this.data.audioPath
+    wx.uploadFile({
+      url: config.service.uploadUrl,
+      filePath: audioPath,
+      name: 'file',
+      header: {
+        'content-type': 'multipart/form-data'
+      },
+      success: res => {
+        console.log(res)
+      },
+      fail: res => {
+        console.log(res)
       }
     })
   },
