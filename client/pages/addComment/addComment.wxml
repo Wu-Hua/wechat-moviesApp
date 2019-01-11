@@ -14,7 +14,7 @@
   <view class='movie-detail-box'>
     <image class='movies-image' src='{{movie.image}}'></image>
     <view class='movie-title'>{{movie.title}}</view>
-    <view wx:if="{{commentType}}">
+    <view wx:if="{{checkCommentType}}">
       <textarea class='comment-ipt' placeholder-class='comment-placeholder' auto-focus placeholder='请输入你的影评内容。。。' maxlength='255' bindinput='onInput'></textarea>
     </view>
     <view wx:else>

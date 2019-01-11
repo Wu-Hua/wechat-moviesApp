@@ -13,6 +13,7 @@ Page({
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
     checkCommentType: null,
+    ckeckCommentType: null,
     commentType: null,
     commentText: null,
     movie: {},
@@ -27,6 +28,7 @@ Page({
    */
   onLoad: function (options) {
     // this.getMovie(1)
+    console.log(options.type)
     this.getMovie(options.id)
     this.ckeckCommentType(options.type)
     this.setData({
