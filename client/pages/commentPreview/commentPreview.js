@@ -10,43 +10,51 @@ Page({
    */
   data: {
     userInfo: null,
+    commentType: null,
     commentText: null,
-    audioPath: null
+    audioPath: null,
+    duration: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
-    console.log(options.commentText)
-    console.log(options.audioPath)
-    this.setData({
-      commentText: options.commentText,
-      audioPath: options.audioPath
-    })
+    if (isNaN(options.duration)) {
+      this.setData({
+        commentText: options.commentText,
+        commentType: options.type,
+        audioPath: options.audioPath,
+      })
+    } else {
+      this.setData({
+        commentText: options.commentText,
+        commentType: options.type,
+        audioPath: options.audioPath,
+        duration: options.duration,
+      })
+    }
     this.getMovie(options.id)
   },
 
   // 添加评论 API 客户端部分的代码，
   addComment(event) {
-    let content = this.data.commentValue
-    if (!content) return
+    let content = this.data.commentText
+    // if (!content) return
 
     wx.showLoading({
       title: '正在发表评论'
     })
 
-    // 它调用了 uploadImages这个函数，同时将返回的上传后的图像链接列表 images ，添加到了上传的数据当中。
-    // 使用 qcloud.request 发起请求
     qcloud.request({
       url: config.service.addComment,
       login: true,
       method: 'PUT',
-      // 上传数据，包括了评论的内容，以及商品的 id ，组装起来作为请求的 data 参数
       data: {
+        movie_id: this.data.movie.id,
+        type: this.data.commentType,
         content: content,
-        movie_id: this.data.movie.id
+        duration: this.data.duration
       },
       success: result => {
         wx.hideLoading()
@@ -72,6 +80,7 @@ Page({
         console.log('fail')
         console.log(res)
         wx.hideLoading()
+
         wx.showToast({
           icon: 'none',
           title: '发表评论失败'

@@ -12,12 +12,14 @@ Page({
   data: {
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
+    checkCommentType: null,
     commentType: null,
     commentText: null,
     movie: {},
     audioBtn: true,
     audioStatus: true,
-    audioPath: null
+    audioPath: null,
+    duration: null
   },
 
   /**
@@ -29,7 +31,8 @@ Page({
     this.ckeckCommentType(options.type)
     this.setData({
       commentText: null,
-      audioPath: null
+      audioPath: null,
+      commentType: options.type
     })
   },
 
@@ -68,11 +71,11 @@ Page({
   ckeckCommentType(type) {
     if(type === 'text') {
       this.setData({
-        commentType: true
+        checkCommentType: true
       })
     } else if(type === 'audio') {
       this.setData({
-        commentType: false
+        checkCommentType: false
       })
     }
   },
@@ -84,9 +87,16 @@ Page({
   },
 
   goToPreviewComment() {
-    wx.navigateTo({
-      url: '../commentPreview/commentPreview?id=' + this.data.movie.id + '&commentText=' + this.data.commentText + '&audioPath=' + this.data.audioPath
-    })
+    if(!this.data.commentText && !this.data.audioPath) {
+      wx.showToast({
+        title: '请输入你的评论',
+      })
+      return
+    } else {
+      wx.navigateTo({
+        url: '../commentPreview/commentPreview?id=' + this.data.movie.id + '&commentText=' + this.data.commentText + '&audioPath=' + this.data.audioPath + '&duration=' + this.data.duration + '&type=' + this.data.commentType
+      })
+    }
   },
 
   getAudio() {
@@ -98,6 +108,9 @@ Page({
     wx.getRecorderManager().start(options)
     if(this.data.audioStatus) {
       wx.getRecorderManager().onStart(() => {
+        wx.showToast({
+          title: '开始录制',
+        })
         console.log('start')
         this.setData({
           audioStatus: false,
@@ -115,9 +128,10 @@ Page({
         this.setData({
           audioStatus: true,
           audioBtn: true,
-          audioPath: res.tempFilePath
+          audioPath: res.tempFilePath,
+          duration: res.duration
         })
-        console.log(this.data.audioPath)
+        console.log(res)
       })
     }
     

@@ -20,9 +20,9 @@ module.exports = {
     // 以及 NaN 值的判断，是不是和我们在获取商品详细时的判断非常相似
     //  add 只是一个 put 请求,所以使用 .body 的方法来获取数据
     let movie_id = + ctx.request.body.movie_id
-    let content = ctx.request.body.content || null
-    let type = []
-    let duration = []
+    let content = ctx.request.body.content || []
+    let type = ctx.request.body.type
+    let duration = ctx.request.body.duration
 
     // 我们上传的数据中，新增了图像的数据，所以我们服务端的API也要修改。
     /**
@@ -35,9 +35,9 @@ module.exports = {
 
 
     // 执行数据库插入语句，然后返回
-    if (!isNaN(productId)) {
+    if (!isNaN(movie_id)) {
       // 接着执行这条 SQL 语句，将我们获取到的数据，插入到 comment 评论表当中
-      await DB.query('INSERT INTO comment(movie_id, user_id, user_name, user_avatar, type, content, duration  ) VALUES (?, ?, ?, ?, ?, ?)', [movie_id, user_id, user_name, user_avatar, typt, content, duration])
+      await DB.query('INSERT INTO comment(movie_id, user_id, user_name, user_avatar, type, content, duration  ) VALUES (?, ?, ?, ?, ?, ?,?)', [movie_id, user_id, user_name, user_avatar, type, content, duration])
     }
 
     // 最后我们返回了空值
