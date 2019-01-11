@@ -65,9 +65,9 @@ Page({
           wx.showToast({
             title: '发表评论成功'
           })
-          setTimeout(() => {
-            wx.navigateBack()
-          }, 1500)
+          wx.navigateTo({
+            url: '../commentDetail/commentDetail'
+          })
 
         } else {
           wx.showToast({
