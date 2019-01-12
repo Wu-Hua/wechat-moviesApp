@@ -1,6 +1,6 @@
 /* client/pages/commentList/commentList.wxss */
 .comment-box {
-  padding: 40rpx 0 50rpx;
+  padding: 40rpx 0 100rpx;
 }
 .comment-card {
   border-top: 1px solid #efeff1;
@@ -26,6 +26,9 @@
 }
 
 .comment-content {
-  width: 100%;
+  width: 500rpx;
   font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

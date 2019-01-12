@@ -10,7 +10,28 @@
   <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
   <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
 </view>
-<view class="user-card" wx:else>
-
+<view wx:else>
+  <view class='movie-detail-box'>
+    <image class='movies-image' src='{{movie.image}}'></image>
+    <view class='movie-title'>{{movie.title}}</view>
+    <view class="comment-detail-box">
+      <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
+      <view class='comment-right'>
+        <view class="user-name">{{userInfo.nickName}}的影评</view>
+        <view class='comment-content'>
+          <view wx:if="{{checkCommentType}}">
+            {{commentDateil.content}}
+          </view>
+          <view wx:else>
+            <view bindtap='onPlay' data-src='{{commentDateil.content}}'>语音评论点击播放</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='movie-detail-btn'>
+      <button bindtap='goToBack'>收藏影评</button>
+      <button bindtap="addComment">写影评</button>
+    </view>
+  </view>
 </view>
 

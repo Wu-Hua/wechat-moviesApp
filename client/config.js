@@ -37,6 +37,9 @@ var config = {
 
       // 获取评论列表
       commentList: `${host}/weapp/comment/`,
+
+      // 获取单条评论列表
+      commentDateilList: `${host}/weapp/comment/`,
     }
 };
 

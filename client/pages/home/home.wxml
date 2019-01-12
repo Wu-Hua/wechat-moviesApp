@@ -1,8 +1,8 @@
 <!--client/pages/home/home.wxml-->
 <view class="body">
-  <view class='product-row'>
-    <image class='movie-image' src='{{moviesList.image}}' mode='widthFix'></image>
-    <view class='movie-title'>{{moviesList.title}}</view>
+  <view class='product-row' bindtap='goToMovieDetail' data-movieId='{{moviesList.id}}'>
+    <image class='movie-image' src='{{moviesList.image}}' data-movieId='{{moviesList.id}}' mode='widthFix'></image>
+    <view class='movie-title' data-movieId='{{moviesList.id}}'>{{moviesList.title}}</view>
   </view>
 
   <view class='footer'>

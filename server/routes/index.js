@@ -46,4 +46,7 @@ router.put('/comment', validationMiddleware, controllers.comment.add)
 // 获取评论列表
 router.get('/comment', controllers.comment.list)
 
+// 获取单条评论列表
+router.get('/comment/:id', controllers.comment.commentDetail)
+
 module.exports = router

@@ -120,3 +120,43 @@ page {
   background: #fff;
   color: #7d97ad;
 }
+
+.go-back-to-home {
+  width: 100%;
+  border-top: 1px solid #edeff0;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+
+
+.comment-detail-box {
+  display: flex;
+  margin-top: 20rpx;
+}
+.user-head {
+  flex-shrink: 0;
+  margin-left: 53rpx;
+  height: 100rpx;
+  width: 100rpx;
+  background: #F5E069;
+  border-radius: 50%;
+}
+.user-name {
+  text-align: left;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  line-height: 100rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.comment-content {
+  text-align: left;
+  font-size: 30rpx;
+  width: 350rpx;
+}

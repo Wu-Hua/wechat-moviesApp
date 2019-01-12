@@ -11,7 +11,7 @@
           {{commentText}}
         </view>
         <view wx:else>
-          <view bindtap='onPlay'>点击播放</view>
+          <view bindtap='onPlay'>语音评论点击播放</view>
         </view>
       </view>
     </view>

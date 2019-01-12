@@ -12,7 +12,7 @@
 </view>
 <view wx:else>
   <view class='comment-box'>
-    <navigator class='comment-card' wx:for='{{commentList}}' wx:key='id' wx:for-item='item'>
+    <navigator class='comment-card' wx:for='{{commentList}}' wx:key='id' wx:for-item='item' url='/pages/commentDetail/commentDetail?commentId={{item.id}}'>
       <image class='comment-avatar' src='{{item.user_avatar}}'></image>
       <view class='comment-box-right'>
         <view class='comment-username'>{{item.user_name}}</view>
@@ -21,11 +21,12 @@
           {{item.content}}
         </view>
         <view wx:else>
-          <view catchtap='onPlay' data-src='{{item.content}}'>点击播放</view>
+          <view catchtap='onPlay' class='comment-content' data-src='{{item.content}}'>语音评论点击播放</view>
         </view>
       </view>
     </navigator>
   </view>
+  <navigator class='go-back-to-home' url='/pages/home/home'>回到首页</navigator>
 </view>
 
 

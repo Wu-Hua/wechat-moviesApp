@@ -23,7 +23,7 @@ Page({
    */
   onLoad: function (options) {
     this.getCommentList(1)
-    // getCommentList(options.id)
+    // this.getCommentList(options.id)
   },
 
   getCommentList(id) {
@@ -47,19 +47,12 @@ Page({
   onPlay(event) {
     console.log(event.target.dataset.src)
     innerAudioContext.src = event.target.dataset.src
-    if (this.data.isPlaying) {
-      innerAudioContext.play()
-      console.log('开始播放')
-      this.setData({
-        isPlaying: false
-      })
-    } else {
-      innerAudioContext.stop()
-      console.log('播放结束')
-      this.setData({
-        isPlaying: false
-      })
-    }
+    innerAudioContext.play()
+    console.log('开始播放')
+    this.setData({
+      isPlaying: false
+    })
+
     innerAudioContext.onError((res) => {
       console.log(res.errMsg)
       console.log(res.errCode)

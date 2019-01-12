@@ -18,6 +18,12 @@ Page({
     this.getMoviesList()
   },
 
+  goToMovieDetail(event) {
+    wx.navigateTo({
+      url: '../movieDetail/movieDetail?id=' + event.target.dataset.movieid
+    })
+  },
+
   getMoviesList() {
     wx.showLoading({
       title: '数据加载中。。。',

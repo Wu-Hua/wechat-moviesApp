@@ -1,1 +1,10 @@
 /* client/pages/commentDetali/commentDetail.wxss */
+.movie-detail-box {
+  height: 67vh;
+  margin-bottom: 50rpx;
+}
+
+.movie-detail-btn {
+  display: flex;
+  margin: 200rpx auto 50rpx;
+}

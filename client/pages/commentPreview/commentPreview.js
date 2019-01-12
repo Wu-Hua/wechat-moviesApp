@@ -50,14 +50,6 @@ Page({
     this.setData({
       isPlaying: false
     })
-    // if(this.data.isPlaying){
-    // } else {
-    //   innerAudioContext.stop()
-    //   console.log('播放结束')
-    //   this.setData({
-    //     isPlaying: true
-    //   })
-    // }
     innerAudioContext.onError((res) => {
       console.log(res.errMsg)
       console.log(res.errCode)

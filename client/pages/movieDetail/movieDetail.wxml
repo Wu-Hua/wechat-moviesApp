@@ -4,7 +4,7 @@
   <view class='movie-title'>{{movie.title}}</view>
   <view class='movie-description'>{{movie.description}}</view>
   <view class='movie-detail-btn' >
-    <button>查看影评</button>
+    <button bindtap='goToCommentList'>查看影评</button>
     <button bindtap='showLayer'>添加影评</button>
   </view>
 </view>
