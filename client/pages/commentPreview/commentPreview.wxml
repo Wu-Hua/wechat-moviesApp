@@ -16,7 +16,7 @@
       </view>
     </view>
   </view>
-  <view class='movie-detail-btn' >
+  <view class='movie-detail-btn'>
     <button bindtap='goToBack'>重新编辑</button>
     <button bindtap="addComment">发布影评</button>
   </view>

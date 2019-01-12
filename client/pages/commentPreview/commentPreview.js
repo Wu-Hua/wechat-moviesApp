@@ -15,7 +15,7 @@ Page({
     commentType: null,
     commentText: null,
     audioPath: null,
-    duration: 0,
+    duration: 10000,
     isPlaying: true
   },
 
@@ -41,9 +41,6 @@ Page({
     this.checkCommentType(options.type)
     this.audioCtx = wx.createAudioContext('myAudio')
     this.audioCtx.setSrc(options.audioPath)
-    console.log(this.data.commentType)
-    console.log(this.data.audioPath)
-    console.log(this.data.duration)
   },
 
   onPlay(){
@@ -82,15 +79,17 @@ Page({
 
   // 添加评论 API 客户端部分的代码，
   addComment(event) {
-    let content = this.data.commentText
     //如果是音频评论先将音频文件上传至对象存储
+    let content = null
     if (this.data.commentType == 'audio') {
-      content = this.data.audioPath
-      this.uploadAudio(() => {
+      this.uploadAudio( (audioPath) => {
         wx.showLoading({
           title: '正在发表评论'
         })
-
+        this.setData({
+          audioPath: audioPath
+        })
+        console.log(this.data.audioPath)
         qcloud.request({
           url: config.service.addComment,
           login: true,
@@ -98,7 +97,7 @@ Page({
           data: {
             movie_id: this.data.movie.id,
             type: this.data.commentType,
-            content: this.data.audioPath,
+            content: this.data.commentType == 'audio' ? this.data.audioPath : this.data.commentText,
             duration: this.data.duration
           },
           success: result => {
@@ -133,54 +132,9 @@ Page({
           }
         })
       })
+    } else {
+      this.addCommentList()
     }
-
-    // wx.showLoading({
-    //   title: '正在发表评论'
-    // })
-
-    // qcloud.request({
-    //   url: config.service.addComment,
-    //   login: true,
-    //   method: 'PUT',
-    //   data: {
-    //     movie_id: this.data.movie.id,
-    //     type: this.data.commentType,
-    //     content: this.data.audioPath,
-    //     duration: this.data.duration
-    //   },
-    //   success: result => {
-    //     wx.hideLoading()
-
-    //     let data = result.data
-
-    //     if (!data.code) {
-    //       wx.showToast({
-    //         title: '发表评论成功'
-    //       })
-    //       wx.navigateTo({
-    //         url: '../commentList/commentList?id=' + this.data.movie.id
-    //       })
-
-    //     } else {
-    //       wx.showToast({
-    //         icon: 'none',
-    //         title: '发表评论失败'
-    //       })
-    //     }
-    //   },
-    //   fail: (res) => {
-    //     console.log('fail')
-    //     console.log(res)
-    //     wx.hideLoading()
-
-    //     wx.showToast({
-    //       icon: 'none',
-    //       title: '发表评论失败'
-    //     })
-    //   }
-    // })
-
   },
 
   //音频上传函数
@@ -189,16 +143,75 @@ Page({
     wx.uploadFile({
       url: config.service.uploadUrl,
       filePath: audioPath,
+      header: {
+        'content-type': 'multipart/form-data'
+      },
       name: 'file',
       success: res => {
-        let url = res.data.substr(res.data.indexOf("imgUrl") + 9, 87)
-        this.setData({
-          audioPath: url
-        })
+        let data = JSON.parse(res.data)
+        let audioPath = data.data.imgUrl
+        if (!data.code) {
+          this.setData({
+            audioPath: audioPath
+          })
+          console.log(this.data.audioPath)
+        }
         cb && cb(audioPath)
       },
       fail: res => {
+        let data = JSON.parse(res.data)
+        let audioPath = data.data.imgUrl
+        console.log('fail')
+        console.log(res)
         cb && cb(audioPath)
+      }
+    })
+  },
+
+  addCommentList() {
+    wx.showLoading({
+      title: '正在发表评论'
+    })
+    console.log(this.data.audioPath)
+    qcloud.request({
+      url: config.service.addComment,
+      login: true,
+      method: 'PUT',
+      data: {
+        movie_id: this.data.movie.id,
+        type: this.data.commentType,
+        content: this.data.commentType == 'audio' ? this.data.audioPath : this.data.commentText,
+        duration: this.data.duration
+      },
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+
+        if (!data.code) {
+          wx.showToast({
+            title: '发表评论成功'
+          })
+          wx.navigateTo({
+            url: '../commentList/commentList?id=' + this.data.movie.id
+          })
+
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '发表评论失败'
+          })
+        }
+      },
+      fail: (res) => {
+        console.log('fail')
+        console.log(res)
+        wx.hideLoading()
+
+        wx.showToast({
+          icon: 'none',
+          title: '发表评论失败'
+        })
       }
     })
   },
