@@ -77,4 +77,17 @@ module.exports = {
       ctx.state.data = []
     }
   },
+
+  /**
+   * 获取用户评论列表
+   */
+  userComment: async ctx => {
+    // 在服务器端，用 query.movie_id 来获取这个数据
+    // 因为在请求的类别不同,所以我们获取请求中包含的数据的方法也是不同的，
+    // 这里是 get 请求,所以使用 .query 的方式来获取数据,
+    // 而我们上面的 add 只是一个 put 请求,所以使用 .body 的方法来获取数据
+    let user = ctx.state.$wxInfo.userinfo.openId
+
+    ctx.state.data = await DB.query('select * from comment where comment.user_id = ?', [user])
+  },
 }

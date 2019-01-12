@@ -29,7 +29,7 @@
       </view>
     </view>
     <view class='movie-detail-btn'>
-      <button bindtap='goToBack'>收藏影评</button>
+      <button bindtap='addToUser'>收藏影评</button>
       <button bindtap="showLayer">写影评</button>
     </view>
   </view>

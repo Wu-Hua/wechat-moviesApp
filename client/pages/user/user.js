@@ -1,4 +1,6 @@
 // pages/user/user.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
+const config = require('../../config.js')
 const app = getApp()
 
 Page({
@@ -11,40 +13,32 @@ Page({
     locationAuthType: app.data.locationAuthType
   },
 
-  onTapAddress() {
-    wx.showToast({
-      icon: 'none',
-      title: '此功能暂未开放'
-    })
-  },
-
-  onTapKf() {
-    wx.showToast({
-      icon: 'none',
-      title: '此功能暂未开放'
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 借助我们之前的会话管理，小程序自动加载我们的信息，就能轻松实现这个功能
-
-
-    // 在 onLoad 中调用这个函数，这样子，这个页面在载入时，就会检查用户是否登录，是否处在一个会话当中
-    // this.checkSession({
-    //   // 这个设置调用 checkSession 成功时的回调函数
-    //   success: ({ userInfo }) => {
-    //     this.setData({
-    //       userInfo: userInfo
-    //     })
-    //   },
-    //   // 这是失败时的回调函数，不做额外的处理，传一个空
-    //   error: () => { }
-    // })
+    this.getUserComment()
   },
 
+  getUserComment() {
+    qcloud.request({
+      url: config.service.userComment,
+      login: true,
+      success: result => {
+        let data = result.data
+        console.log(result)
+        // if (!data.code) {
+        //   this.setData({
+        //     commentDateil: data,
+        //   })
+        // }
+      },
+      fail: res => {
+        console.log('fail')
+        console.log(res)
+      }
+    })
+  },
 
   onTapLogin: function () {
     app.login({
@@ -61,12 +55,6 @@ Page({
       }
     })
   },
-
-
-
-
-
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -90,6 +78,10 @@ Page({
         })
       }
     })
+    // this.getUserComment(this.data.userInfo.id)
+    if (this.data.locationAuthType == 2) {
+      this.doQcloudLogin()
+    }
   },
 
   /**

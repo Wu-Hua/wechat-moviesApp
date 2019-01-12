@@ -40,6 +40,12 @@ var config = {
 
       // 获取单条评论列表
       commentDateilList: `${host}/weapp/comment/`,
+
+      // 添加收藏影评到用户中心
+      addUser: `${host}/weapp/comment_user`,
+
+      // 获取用户评论
+      userComment: `${host}/weapp/comment/`,
     }
 };
 

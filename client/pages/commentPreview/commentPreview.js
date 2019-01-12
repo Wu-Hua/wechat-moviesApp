@@ -15,7 +15,7 @@ Page({
     commentType: null,
     commentText: null,
     audioPath: null,
-    duration: 10000,
+    duration: 0,
     isPlaying: true
   },
 
