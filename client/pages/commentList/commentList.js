@@ -38,7 +38,6 @@ Page({
           this.setData({
             commentList: data.data
           })
-          console.log(this.data.commentList)
         }
       },
     })

@@ -28,7 +28,6 @@ Page({
    */
   onLoad: function (options) {
     // this.getMovie(1)
-    console.log(options.type)
     this.getMovie(options.id)
     this.ckeckCommentType(options.type)
     this.setData({

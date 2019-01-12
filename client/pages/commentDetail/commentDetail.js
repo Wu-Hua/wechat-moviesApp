@@ -15,6 +15,7 @@ Page({
       locationAuthType: app.data.locationAuthType,
       commentDateil: null,
       checkCommentType: null,
+      layer: false
     },
   },
 
@@ -27,21 +28,18 @@ Page({
   },
 
   getCommentDetail(id) {
-    console.log(id)
     qcloud.request({
       url: config.service.commentDateilList + id,
       data: {
         id: id
       },
       success: result => {
-        console.log('success')
         let data = result.data.data[0]
         if (!data.code) {
           this.setData({
             commentDateil: data,
           })
         }
-        console.log(this.data.commentDateil.content)
         this.getMovie(this.data.commentDateil.movie_id)
         this.checkCommentType(this.data.commentDateil.type)
       },
@@ -84,6 +82,20 @@ Page({
           wx.navigateBack()
         }, 2000)
       }
+    })
+  },
+
+  goToAddComment(event) {
+    this.showLayer()
+    wx.navigateTo({
+      url: '../addComment/addComment?id=' + this.data.movie.id + '&' + 'type=' + event.target.dataset.type
+    })
+  },
+
+  showLayer() {
+    let changeLayer = !this.data.layer
+    this.setData({
+      layer: changeLayer
     })
   },
 
