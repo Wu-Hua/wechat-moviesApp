@@ -38,6 +38,7 @@ Page({
       })
     }
     this.getMovie(options.id)
+    this.checkCommentType(options.type)
     this.audioCtx = wx.createAudioContext('myAudio')
     this.audioCtx.setSrc(options.audioPath)
     console.log(this.data.commentType)

@@ -1,4 +1,5 @@
 //app.js
+// 导入qcloud库以及config.js
 var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 
@@ -7,6 +8,7 @@ let userInfo
 const UNPROMPTED = 0
 const UNAUTHORIZED = 1
 const AUTHORIZED = 2
+
 
 App({
   onLaunch: function () {
@@ -87,7 +89,8 @@ App({
           error && error()
         }
       },
-      fail: () => {
+      fail: (res) => {
+        console.log(res)
         error && error()
       }
     })
