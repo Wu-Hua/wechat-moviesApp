@@ -14,6 +14,7 @@ Page({
       userInfo: null,
       locationAuthType: app.data.locationAuthType,
       commentDateil: null,
+      movie: null,
       checkCommentType: null,
       layer: false,
       commentId: null
@@ -33,18 +34,18 @@ Page({
 
   addToUser() {
     wx.showLoading({
-      title: '正在添加到购物车...',
+      title: '正在收藏评论...',
     })
 
     qcloud.request({
       url: config.service.addUser,
       login: true,
-      // 需要注意的是我们这里用的是 PUT 方法，因为当商品已经在购物车的时候，我们需要更新数据库
-      // 我们将商品的数据直接通过 data 来传输，这部分数据将直接出现在中间件的 body 中，
-      // 最后添加 url 
       method: 'PUT',
       data: {
-        comment_id: this.data.commentId
+        movie_Id: this.data.commentDateil.movie_id,
+        comment_Id: this.data.commentDateil.id,
+        movie_image: this.data.movie.image,
+        movie_title: this.data.movie.title
       },
       success: result => {
         console.log('success')
@@ -55,12 +56,12 @@ Page({
 
         if (!data.code) {
           wx.showToast({
-            title: '已添加到购物车',
+            title: '收藏评论成功',
           })
         } else {
           wx.showToast({
             icon: 'none',
-            title: '添加到购物车失败',
+            title: '收藏评论失败',
           })
         }
       },
@@ -71,7 +72,7 @@ Page({
 
         wx.showToast({
           icon: 'none',
-          title: '添加到购物车失败',
+          title: '收藏评论失败',
         })
       }
     })
@@ -90,6 +91,7 @@ Page({
             commentDateil: data,
           })
         }
+        console.log(this.data.commentDateil)
         this.getMovie(this.data.commentDateil.movie_id)
         this.checkCommentType(this.data.commentDateil.type)
       },
@@ -119,6 +121,7 @@ Page({
           this.setData({
             movie: data.data,
           })
+          console.log(this.data.movie)
         } else {
           setTimeout(() => {
             wx.navigateBack()

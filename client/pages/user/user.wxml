@@ -11,9 +11,53 @@
   <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
 </view>
 <view wx:else>
-  <view class='user-comment'>
-    <view class='user-collect-comment'></view>
-    <view class='user-comment-box'></view>
+  <view class='user-comment-box'>
+    <view class='user-add-comment'>
+      <view class='user-comment-title'>收藏的影评</view>
+      <view wx:for='{{userAddComment}}' wx:key='id' wx:for-item="comment" class='comment-card'>
+        <image class='movie-img' src='{{comment.movie_image}}'></image>
+        <view class='comment-car-content'>
+          <view class='comment-dar-position'>
+            <view>{{comment.movie_title}}</view>
+            <view class='content'>
+              <view wx:if='{{comment.type === "text"}}'>
+                {{comment.content}}
+              </view>
+              <view wx:else>
+                <view bindtap='onPlay' data-src='{{comment.content}}'>语音评论点击播放</view>
+              </view>
+            </view>
+            <view class='user'>
+              <image src='{{comment.user_avatar}}'></image>
+              <view>{{comment.user_name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='user-comment'>
+      <view class='user-comment-title'>发布的影评</view>
+      <view wx:for='{{userComment}}' wx:key='id' wx:for-item="comment" class='comment-card'>
+        <image class='movie-img' src='{{comment.image}}'></image>
+        <view class='comment-car-content'>
+          <view class='comment-dar-position'>
+            <view>{{comment.title}}</view>
+            <view class='content'>
+              <view wx:if='{{comment.type === "text"}}'>
+                {{comment.content}}
+              </view>
+              <view wx:else>
+                <view bindtap='onPlay' data-src='{{comment.content}}'>语音评论点击播放</view>
+              </view>
+            </view>
+            <view class='user'>
+              <image src='{{comment.user_avatar}}'></image>
+              <view>{{comment.user_name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
   <navigator class='go-back-to-home' url='/pages/home/home'>回到首页</navigator>
 </view>

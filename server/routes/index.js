@@ -49,10 +49,13 @@ router.get('/comment', controllers.comment.list)
 // 获取单条评论列表
 router.get('/comment/:id', controllers.comment.commentDetail)
 
-// 获取单条评论列表
-router.get('/comment', controllers.comment.userComment)
+// 获取用户评论列表
+router.get('/comment1', validationMiddleware, controllers.comment.userComment)
+
+// 获取用户收藏评论列表
+router.get('/collection1', validationMiddleware, controllers.userComment.list)
 
 // 评论加到收藏评论
-router.put('/user_comment', validationMiddleware, controllers.userComment.add)
+router.put('/collection', validationMiddleware, controllers.userComment.add)
 
 module.exports = router

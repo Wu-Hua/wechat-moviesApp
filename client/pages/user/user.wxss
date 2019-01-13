@@ -1,1 +1,53 @@
 /* client/pages/user/user.wxss */
+.user-comment-box {
+  margin: 30rpx 0 100rpx;
+  /* background: #fff; */
+}
+.user-comment-title{
+  color: red;
+  font-size: 30rpx;
+  text-align: center;
+}
+.comment-card {
+  display: flex;
+  background: #fff;
+  width: 95%;
+  margin: 20rpx auto;
+  border: 1px solid #efeff1;
+  position: relative;
+}
+.movie-img {
+  width: 35%;
+}
+.comment-car-content {
+  width: 65%;
+  /* padding: 0 20rpx; */
+  position: relative
+}
+.comment-dar-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90%;
+}
+.content {
+  margin: 20rpx 0 30rpx;
+  font-size: 35rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.user {
+  display: flex;
+}
+.user image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.user view {
+  line-height: 100rpx;
+  margin-left: 20rpx;
+}

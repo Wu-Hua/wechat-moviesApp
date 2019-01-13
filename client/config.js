@@ -42,10 +42,13 @@ var config = {
       commentDateilList: `${host}/weapp/comment/`,
 
       // 添加收藏影评到用户中心
-      addUser: `${host}/weapp/comment_user`,
+      addUser: `${host}/weapp/collection`,
 
       // 获取用户评论
-      userComment: `${host}/weapp/comment/`,
+      userComment: `${host}/weapp/comment1`,
+
+      // 获取用户收藏评论
+      userAddComment: `${host}/weapp/collection1`,
     }
 };
 

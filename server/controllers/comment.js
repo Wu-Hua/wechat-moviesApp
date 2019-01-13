@@ -24,14 +24,6 @@ module.exports = {
     let type = ctx.request.body.type
     let duration = ctx.request.body.duration
 
-    // 我们上传的数据中，新增了图像的数据，所以我们服务端的API也要修改。
-    /**
-     * 我们不建议在数据库中直接存储一个列表，
-     * 所以我们使用 双逗号，将图像列表中的链接连接起来，构成一个较长的srting，存储在数据库当中。
-     * 我们的数据表中本来就包含图像的字段，因此我们就不需要额外的对数据表进行更改了。
-     */
-    let images = ctx.request.body.images || []
-    images = images.join(';;')
 
 
     // 执行数据库插入语句，然后返回
@@ -88,6 +80,7 @@ module.exports = {
     // 而我们上面的 add 只是一个 put 请求,所以使用 .body 的方法来获取数据
     let user = ctx.state.$wxInfo.userinfo.openId
 
-    ctx.state.data = await DB.query('select * from comment where comment.user_id = ?', [user])
+    ctx.state.data = await DB.query('SELECT * FROM comment LEFT JOIN movies ON comment.movie_id = movies.id WHERE comment.user_id = ?', [user])
+    
   },
 }

@@ -1,6 +1,7 @@
 // pages/user/user.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
+const innerAudioContext = wx.createInnerAudioContext()
 const app = getApp()
 
 Page({
@@ -10,14 +11,17 @@ Page({
    */
   data: {
     userInfo: null,
-    locationAuthType: app.data.locationAuthType
+    locationAuthType: app.data.locationAuthType,
+    userComment: [],
+    userAddComment: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserComment()
+    // this.getUserComment()
+    // this.getUserAddComment()
   },
 
   getUserComment() {
@@ -26,17 +30,55 @@ Page({
       login: true,
       success: result => {
         let data = result.data
-        console.log(result)
-        // if (!data.code) {
-        //   this.setData({
-        //     commentDateil: data,
-        //   })
-        // }
+        // console.log(result)
+        if (!data.code) {
+          this.setData({
+            userComment: data.data,
+          })
+          console.log('userComment')
+          console.log(this.data.userComment)
+        }
       },
       fail: res => {
         console.log('fail')
         console.log(res)
       }
+    })
+  },
+
+  getUserAddComment() {
+    qcloud.request({
+      url: config.service.userAddComment,
+      login: true,
+      success: result => {
+        let data = result.data
+        // console.log(result)
+        if (!data.code) {
+          this.setData({
+            userAddComment: data.data,
+          })
+        }
+        console.log('userAddComment')
+        console.log(this.data.userAddComment)
+      },
+      fail: res => {
+        console.log('fail')
+        console.log(res)
+      }
+    })
+  },
+
+  onPlay(event) {
+    // console.log(event)
+    innerAudioContext.src = event.target.dataset.src
+    innerAudioContext.play()
+    console.log('开始播放')
+    this.setData({
+      isPlaying: false
+    })
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
     })
   },
 
@@ -47,6 +89,8 @@ Page({
           userInfo,
           locationAuthType: app.data.locationAuthType
         })
+        this.getUserComment()
+        this.getUserAddComment()
       },
       error: () => {
         this.setData({
@@ -76,9 +120,10 @@ Page({
         this.setData({
           userInfo
         })
+        this.getUserComment()
+        this.getUserAddComment()
       }
     })
-    // this.getUserComment(this.data.userInfo.id)
     if (this.data.locationAuthType == 2) {
       this.doQcloudLogin()
     }
