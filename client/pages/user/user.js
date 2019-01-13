@@ -20,11 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getUserComment()
-    // this.getUserAddComment()
+    this.getUserComment()
+    this.getUserAddComment()
   },
 
-  getUserComment() {
+  getUserComment(cb) {
     qcloud.request({
       url: config.service.userComment,
       login: true,
@@ -42,11 +42,14 @@ Page({
       fail: res => {
         console.log('fail')
         console.log(res)
+      },
+      complete: () => {
+        cb && cb()
       }
     })
   },
 
-  getUserAddComment() {
+  getUserAddComment(cb) {
     qcloud.request({
       url: config.service.userAddComment,
       login: true,
@@ -64,12 +67,14 @@ Page({
       fail: res => {
         console.log('fail')
         console.log(res)
+      },
+      complete: () => {
+        cb && cb()
       }
     })
   },
 
   onPlay(event) {
-    // console.log(event)
     innerAudioContext.src = event.target.dataset.src
     innerAudioContext.play()
     console.log('开始播放')
@@ -147,7 +152,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getUserComment(() => {
+      wx.stopPullDownRefresh()
+    })
+    this.getUserAddComment(() => {
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**

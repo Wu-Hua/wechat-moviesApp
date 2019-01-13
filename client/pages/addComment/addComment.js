@@ -111,7 +111,7 @@ Page({
       wx.getRecorderManager().onStart(() => {
         wx.showToast({
           title: '开始录制',
-          icon: 'loading'
+          icon: 'none'
         })
         console.log('start')
         this.setData({

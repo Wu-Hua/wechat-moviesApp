@@ -3,6 +3,12 @@
   <view class='product-row' bindtap='goToMovieDetail' data-movieId='{{moviesList.id}}'>
     <image class='movie-image' src='{{moviesList.image}}' data-movieId='{{moviesList.id}}' mode='widthFix'></image>
     <view class='movie-title' data-movieId='{{moviesList.id}}'>{{moviesList.title}}</view>
+    <view bindtap='goToCommentDetail'>
+      <view class='user'>
+        <image src='{{commentList.user_avatar}}'></image>
+        <view>{{commentList.user_name}}给你推荐了一部电影</view>
+      </view>
+    </view>
   </view>
 
   <view class='footer'>

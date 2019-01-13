@@ -28,4 +28,7 @@
   text-align: left;
   font-size: 30rpx;
   width: 350rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

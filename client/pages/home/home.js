@@ -9,13 +9,16 @@ Page({
    */
   data: {
     moviesList: [], // 电影列表
+    commentList: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMoviesList()
+    let num = Math.floor(Math.random() * 15 + 1);
+    this.getMoviesList(num)
+    this.getCommentList(num)
   },
 
   goToMovieDetail(event) {
@@ -24,7 +27,7 @@ Page({
     })
   },
 
-  getMoviesList() {
+  getMoviesList(id) {
     wx.showLoading({
       title: '数据加载中。。。',
     })
@@ -34,7 +37,7 @@ Page({
         wx.hideLoading()
         if (!result.data.code) {
           this.setData({
-            moviesList: result.data.data[0]
+            moviesList: result.data.data[id-1]
           })
         } else {
           wx.showToast({
@@ -51,9 +54,32 @@ Page({
     })
   },
 
+  getCommentList(id) {
+    qcloud.request({
+      url: config.service.commentList,
+      data: {
+        movie_id: id
+      },
+      success: result => {
+        let data = result.data
+        if (!data.code) {
+          this.setData({
+            commentList: data.data[0]
+          })
+        }
+      },
+    })
+  },
+
   goToMoviesList() {
     wx.navigateTo({
       url: '../moviesList/moviesList?id=' + this.data.moviesList.id
+    })
+  },
+
+  goToCommentDetail() {
+    wx.navigateTo({
+      url: '../commentDetail/commentDetail?commentId=' + this.data.commentList.id
     })
   },
 

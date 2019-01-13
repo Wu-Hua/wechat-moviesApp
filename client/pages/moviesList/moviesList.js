@@ -18,7 +18,7 @@ Page({
     this.getMoviesList()
   },
 
-  getMoviesList() {
+  getMoviesList(cb) {
     wx.showLoading({
       title: '数据加载中。。。',
     })
@@ -42,6 +42,9 @@ Page({
         wx.showToast({
           title: '数据加载失败',
         })
+      },
+      complete: () => {
+        cb && cb()
       }
     })
   },
@@ -84,7 +87,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getMoviesList(() => {
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**

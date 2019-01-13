@@ -8,17 +8,32 @@
   width: 72%;
   margin-top: 50rpx;
 }
+.user {
+  display: flex;
+  margin: 10rpx auto 0;
+  justify-content: center;
+}
+.user image {
+  width: 80rpx; 
+  height: 80rpx;
+  border-radius: 50%;
+}
+.user view {
+  line-height: 80rpx;
+  margin-left: 20rpx;
+}
 .footer {
   border-top: 1px solid #e6ebef;
   width: 100%;
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
 }
 .footer button {
   background: #fff;
   width: 50%;
+  border-radius: 0;
 }
 .footer button::after {
   border: none;

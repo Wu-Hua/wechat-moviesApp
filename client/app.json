@@ -11,7 +11,7 @@
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle": "black"
