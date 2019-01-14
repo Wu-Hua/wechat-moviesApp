@@ -1,6 +1,6 @@
 /* client/pages/user/user.wxss */
 .user-comment-box {
-  margin: 30rpx 0 100rpx;
+  padding: 30rpx 0 100rpx;
   /* background: #fff; */
 }
 .user-comment-title{

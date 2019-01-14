@@ -1,6 +1,6 @@
 /* client/pages/commentDetali/commentDetail.wxss */
 .movie-detail-box {
-  height: 67vh;
+  height: auto;
   margin-bottom: 50rpx;
 }
 

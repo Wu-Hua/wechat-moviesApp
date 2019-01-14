@@ -41,11 +41,14 @@ var config = {
       // 获取单条评论列表
       commentDateilList: `${host}/weapp/comment/`,
 
-      // 添加收藏影评到用户中心
-      addUser: `${host}/weapp/collection`,
-
       // 获取用户评论
       userComment: `${host}/weapp/comment1`,
+
+      // 获取用户评论
+      check: `${host}/weapp/comment2`,
+
+      // 添加收藏影评到用户中心
+      addUser: `${host}/weapp/collection`,
 
       // 获取用户收藏评论
       userAddComment: `${host}/weapp/collection1`,

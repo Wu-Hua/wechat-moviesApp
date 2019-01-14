@@ -52,6 +52,9 @@ router.get('/comment/:id', controllers.comment.commentDetail)
 // 获取用户评论列表
 router.get('/comment1', validationMiddleware, controllers.comment.userComment)
 
+// 检查用户是否评论
+router.get('/comment2', validationMiddleware, controllers.comment.check)
+
 // 获取用户收藏评论列表
 router.get('/collection1', validationMiddleware, controllers.userComment.list)
 

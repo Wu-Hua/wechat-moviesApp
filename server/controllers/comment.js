@@ -83,4 +83,20 @@ module.exports = {
     ctx.state.data = await DB.query('SELECT * FROM comment LEFT JOIN movies ON comment.movie_id = movies.id WHERE comment.user_id = ?', [user])
     
   },
+
+  /**
+   * 检查用户有没有评论该电影
+   */
+  check: async ctx => {
+    let user_Id = ctx.state.$wxInfo.userinfo.openId
+    let movie_Id = + ctx.request.query.movie_Id
+
+    let list = await DB.query('SELECT * FROM comment WHERE comment.user_id = ? AND comment.movie_id = ?', [user_Id, movie_Id])
+
+    if (list.length == 0) {
+      ctx.state.data = { check : true }
+    } else {
+      ctx.state.data = {list}
+    }
+  },
 }

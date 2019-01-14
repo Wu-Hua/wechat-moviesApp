@@ -16,7 +16,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getMovie(1)
     this.getMovie(options.id)
   },
 
@@ -59,9 +58,33 @@ Page({
   },
 
   goToAddComment(event) {
-    this.showLayer()
-    wx.navigateTo({
-      url: '../addComment/addComment?id=' + this.data.movie.id + '&' + 'type=' + event.target.dataset.type
+    qcloud.request({
+      url: config.service.check,
+      login: true,
+      data: {
+        movie_Id: this.data.movie.id
+      },
+      success: result => {
+        console.log('success')
+
+        let data = result.data
+
+        if (!data.code && data.data.check) {
+          this.showLayer()
+          wx.navigateTo({
+            url: '../addComment/addComment?id=' + this.data.movie.id + '&' + 'type=' + event.target.dataset.type
+          })
+        } else {
+          this.showLayer()
+          wx.navigateTo({
+            url: '../commentDetail/commentDetail?commentId=' + data.data.list[0].id
+          })
+        }
+      },
+      fail: (res) => {
+        console.log('fail')
+        console.log(res)
+      }
     })
   },
 
@@ -71,53 +94,4 @@ Page({
       layer: changeLayer
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

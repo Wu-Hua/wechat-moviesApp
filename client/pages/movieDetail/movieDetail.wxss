@@ -1,4 +1,7 @@
 /* client/pages/movieDetail/movieDetail.wxss */
+page {
+  padding-bottom: 50rpx;
+}
 .movie-detail-box {
   width: 85%;
   margin: 0 auto;

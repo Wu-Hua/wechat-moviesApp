@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2019-01-13 08:14:50
+-- Generation Time: 2019-01-14 02:30:08
 -- 服务器版本： 5.7.18
 -- PHP Version: 5.6.30
 
@@ -43,8 +43,8 @@ CREATE TABLE `collection` (
 --
 
 INSERT INTO `collection` (`id`, `movie_id`, `movie_image`, `movie_title`, `user_id`, `comment_id`, `create_time`) VALUES
-(5, '1', '	https://movies-1258025714.cos.ap-guangzhou.myqcloud.com/p2517753454.jpg', '复仇者联盟3：无限战争', 'op0sB5UXH1yN6PnqHuyNhYxyTc14', 21, '2019-01-13 13:53:13'),
-(6, '3', '	https://movies-1258025714.cos.ap-guangzhou.myqcloud.com/p863416171.jpg', '挡不住的奇迹', 'op0sB5UXH1yN6PnqHuyNhYxyTc14', 30, '2019-01-13 15:30:14');
+(7, '8', '	https://movies-1258025714.cos.ap-guangzhou.myqcloud.com/p1665997400.jpg', '美丽心灵', 'op0sB5UXH1yN6PnqHuyNhYxyTc14', 61, '2019-01-14 10:19:21'),
+(8, '13', '	https://movies-1258025714.cos.ap-guangzhou.myqcloud.com/p1461851991.jpg', '机器人总动员', 'op0sB5UXH1yN6PnqHuyNhYxyTc14', 63, '2019-01-14 10:29:44');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +64,7 @@ ALTER TABLE `collection`
 -- 使用表AUTO_INCREMENT `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

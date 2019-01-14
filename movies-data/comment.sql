@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2019-01-13 08:14:42
+-- Generation Time: 2019-01-14 02:30:12
 -- 服务器版本： 5.7.18
 -- PHP Version: 5.6.30
 
@@ -45,35 +45,15 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `movie_id`, `user_id`, `user_name`, `user_avatar`, `type`, `content`, `duration`, `create_time`) VALUES
-(1, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'text comment test', 0, '2019-01-11 11:18:57'),
-(2, 6, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '热血警探评论测试', 0, '2019-01-11 11:24:56'),
-(3, 8, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心灵文本评论满字符测试，美丽心', 0, '2019-01-11 11:27:31'),
-(4, 6, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '热血警探第二条文本评论测试', 0, '2019-01-11 11:28:32'),
-(5, 6, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '热血警探第三条文本评论测试', 0, '2019-01-11 11:28:54'),
-(21, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test', 10000, '2019-01-12 14:30:28'),
-(22, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'testtest', 10000, '2019-01-12 14:31:42'),
-(26, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'audio', 'https://qcloudtest-1258025714.cos.ap-guangzhou.myqcloud.com/1547276142851-iaMpnEOGA.mp3', 2101, '2019-01-12 14:55:43'),
-(27, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '1233321test', 10000, '2019-01-12 14:57:13'),
-(28, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'audio', 'https://qcloudtest-1258025714.cos.ap-guangzhou.myqcloud.com/1547277538240-8ezJLM7_L.mp3', 2347, '2019-01-12 15:18:59'),
-(29, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'audio', 'https://qcloudtest-1258025714.cos.ap-guangzhou.myqcloud.com/1547277627269-T5T73KH-p.mp3', 3514, '2019-01-12 15:20:28'),
-(30, 3, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test', 0, '2019-01-12 21:59:03'),
-(31, 3, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test', 0, '2019-01-12 21:59:51'),
-(37, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'audio', 'https://qcloudtest-1258025714.cos.ap-guangzhou.myqcloud.com/1547303591694-vqr78B3UN.mp3', 2620, '2019-01-12 22:33:12'),
-(38, 3, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '测试测试', 0, '2019-01-13 15:30:28'),
-(39, 10, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:44:01'),
-(40, 15, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:44:46'),
-(41, 13, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:45:22'),
-(42, 6, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:45:34'),
-(43, 7, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'audio', 'https://qcloudtest-1258025714.cos.ap-guangzhou.myqcloud.com/1547365697868-6BvQlKyb7.mp3', 2658, '2019-01-13 15:48:18'),
-(44, 9, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:49:23'),
-(45, 4, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:49:33'),
-(46, 12, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:50:55'),
-(47, 14, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:51:15'),
-(48, 11, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '添加影评，测试', 0, '2019-01-13 15:51:27'),
-(49, 5, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '456516516516666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666', 0, '2019-01-13 15:52:34'),
-(50, 2, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测', 0, '2019-01-13 15:55:09'),
-(51, 2, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，试测，', 0, '2019-01-13 15:55:35'),
-(52, 11, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '测试测试', 0, '2019-01-13 16:12:17');
+(55, 1, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '测试测试测试', 0, '2019-01-14 09:56:09'),
+(56, 9, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test~~test~!', 0, '2019-01-14 09:57:08'),
+(57, 10, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '肖申克的救赎 电影评论测试~~', 0, '2019-01-14 09:57:52'),
+(58, 2, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', '测试', 0, '2019-01-14 09:58:35'),
+(59, 14, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test test', 0, '2019-01-14 09:59:57'),
+(60, 7, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'audio', 'https://qcloudtest-1258025714.cos.ap-guangzhou.myqcloud.com/1547431761689-72GjeyhYl.mp3', 2939, '2019-01-14 10:09:22'),
+(61, 8, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test test、', 0, '2019-01-14 10:19:18'),
+(62, 11, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test', 0, '2019-01-14 10:20:49'),
+(63, 13, 'op0sB5UXH1yN6PnqHuyNhYxyTc14', '吴华', 'https://wx.qlogo.cn/mmopen/vi_32/eszmWrowibhXJgN7CGJ31XFXxjKbaEibEODurCMkg462QAiaOIy5pMzzpLdvfGlmy1yLf5yWYIa4CFHooqPoQNWxg/132', 'text', 'test', 0, '2019-01-14 10:29:40');
 
 --
 -- Indexes for dumped tables
@@ -94,7 +74,7 @@ ALTER TABLE `comment`
 -- 使用表AUTO_INCREMENT `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -9,7 +9,8 @@ Page({
    */
   data: {
     moviesList: [], // 电影列表
-    commentList: {}
+    commentList: {},
+    noComment: null
   },
 
   /**
@@ -62,9 +63,16 @@ Page({
       },
       success: result => {
         let data = result.data
-        if (!data.code) {
+
+        if (!data.code && data.data[0]) {
           this.setData({
+            noComment: false,
             commentList: data.data[0]
+          })
+        } else {
+          this.setData({
+            noComment: true,
+            commentList: {}
           })
         }
       },
@@ -78,9 +86,11 @@ Page({
   },
 
   goToCommentDetail() {
-    wx.navigateTo({
-      url: '../commentDetail/commentDetail?commentId=' + this.data.commentList.id
-    })
+    if(!this.data.noComment) {
+      wx.navigateTo({
+        url: '../commentDetail/commentDetail?commentId=' + this.data.commentList.id
+      })
+    }
   },
 
   goToUser() {
@@ -88,53 +98,4 @@ Page({
       url: '../user/user'
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
